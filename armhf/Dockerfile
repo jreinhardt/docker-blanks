@@ -8,7 +8,9 @@ RUN mkdir /root/.ssh && \
     touch /root/.ssh/authorized_keys
 
 #change password to something random, we don't need it
-RUN echo 'root:'`openssl rand -base64 32` | chpasswd
+#RUN echo 'root:'`openssl rand -base64 32` | chpasswd
+#alternatively to something simple
+RUN echo 'root:root' | chpasswd
 
 #copy the public key and append it to the list of 
 COPY id_rsa.pub .
